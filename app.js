@@ -5,7 +5,7 @@ const express = require("express");
 const dotenv = require("dotenv");
 const connectDB = require("./config/db");
 const path = require("path");
-
+const cors = require("cors");
 
 // Load environment variables
 dotenv.config();
@@ -20,6 +20,8 @@ app.use(express.json());
 // Serve static files
 app.use(express.static(path.join(__dirname, "public")));
 
+// to deploy fronend and backend on diffrent domains
+app.use(cors());
 
 // Import Routes
 const studentRoutes = require("./routes/studentRoutes");
